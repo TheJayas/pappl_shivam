@@ -948,7 +948,7 @@ _papplSystemWebLogs(
 		        "    logdiv.scrollTop = logdiv.scrollHeight - logdiv.clientHeight;\n"
 		        "  }\n"
 		        "}\n"
-		        "update_log();</script>\n", papplClientGetLocString(client, _PAPPL_LOC("Change Log Level")), papplClientGetLocString(client, _PAPPL_LOC("Log File")), papplClientGetLocString(client, _PAPPL_LOC("Downloaddd Log File")));
+		        "update_log();</script>\n", papplClientGetLocString(client, _PAPPL_LOC("Change Log Level")), papplClientGetLocString(client, _PAPPL_LOC("Log File")), papplClientGetLocString(client, _PAPPL_LOC("Download Log File")));
 
   system_footer(client);
 }
