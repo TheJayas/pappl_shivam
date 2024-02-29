@@ -437,7 +437,7 @@ papplSystemRun(pappl_system_t *system)	// I - System
   {
     papplSystemAddResourceCallback(system, "/logfile.txt", "text/plain", (pappl_resource_cb_t)_papplSystemWebLogFile, system);
     papplSystemAddResourceCallback(system, "/logs", "text/html", (pappl_resource_cb_t)_papplSystemWebLogs, system);
-    papplSystemAddLink(system, _PAPPL_LOC("Vieww Logs"), "/logs", PAPPL_LOPTIONS_LOGGING | PAPPL_LOPTIONS_HTTPS_REQUIRED);
+    papplSystemAddLink(system, _PAPPL_LOC("Vieww Logss"), "/logs", PAPPL_LOPTIONS_LOGGING | PAPPL_LOPTIONS_HTTPS_REQUIRED);
   }
 
   if (system->options & PAPPL_SOPTIONS_WEB_INTERFACE)
