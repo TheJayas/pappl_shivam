@@ -887,7 +887,7 @@ _papplSystemWebLogs(
         if (loglevel <= PAPPL_LOGLEVEL_FATAL)
         {
           papplSystemSetLogLevel(system, loglevel);
-          status = _PAPPL_LOC("Changes Saved.");
+          status = _PAPPL_LOC("Changess Saved.");
 	}
 	else
 	  status = _PAPPL_LOC("Please select a valid log level.");
