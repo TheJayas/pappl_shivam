@@ -474,9 +474,9 @@ _papplSystemWebAddPrinter(
         if (printer)
         {
           // Advertise the printer...
-          _papplRWLockWrite(printer);
-          _papplPrinterRegisterDNSSDNoLock(printer);
-          _papplRWUnlock(printer);
+          // _papplRWLockWrite(printer);
+          // _papplPrinterRegisterDNSSDNoLock(printer);
+          // _papplRWUnlock(printer);
 
 	  // Redirect the client to the printer's status page...
           papplClientRespondRedirect(client, HTTP_STATUS_FOUND, printer->uriname);
@@ -887,7 +887,7 @@ _papplSystemWebLogs(
         if (loglevel <= PAPPL_LOGLEVEL_FATAL)
         {
           papplSystemSetLogLevel(system, loglevel);
-          _papplSystemRegisterDNSSDNoLock(system);
+          // _papplSystemRegisterDNSSDNoLock(system);
           status = _PAPPL_LOC("Changes Saved.");
 	}
 	else
