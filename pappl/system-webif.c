@@ -897,7 +897,7 @@ _papplSystemWebLogs(
           // _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
 
-          status = _PAPPL_LOC("Changes Saved.");
+          status = _PAPPL_LOC(cupsArrayGetCount(system->printers));
 	}
 	else
 	  status = _PAPPL_LOC("Please select a valid log level.");
