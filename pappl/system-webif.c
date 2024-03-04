@@ -896,9 +896,12 @@ _papplSystemWebLogs(
           // _papplSystemRegisterDNSSDNoLock(system);
           // _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
-      int cnt=cupsArrayGetCount(system->printers);
+      int cnt=cupsArrayGetCount(system->log_array);
+      // log_array
       // char chh[2];
       // chh[0]=((cnt%10)+'0');
+      if(cnt==0)
+          {status = _PAPPL_LOC("0");}
       if(cnt==1)
           {status = _PAPPL_LOC("1");}
           if(cnt==2)
