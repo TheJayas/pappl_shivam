@@ -1941,13 +1941,22 @@ papplSystemSetLogLevel(
 {
   if (system)
   {
-    pthread_mutex_lock(&system->log_mutex);
+    // pthread_mutex_lock(&system->log_mutex);
+    _papplRWLockWrite(system);
+
+    free(system->log_level);
+    // system->geo_location = value && *value ? strdup(value) : NULL;
+
 
     system->log_level = loglevel;
 
     _papplSystemConfigChanged(system);
 
-    pthread_mutex_unlock(&system->log_mutex);
+    _papplSystemRegisterDNSSDNoLock(system);
+    _papplRWUnlock(system);
+    // _papplSystemConfigChanged(system);
+
+    // pthread_mutex_unlock(&system->log_mutex);
   }
 }
 
