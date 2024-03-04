@@ -1942,9 +1942,10 @@ papplSystemSetLogLevel(
   if (system)
   {
     pthread_mutex_lock(&system->log_mutex);
+    _papplRWLockWrite(system);
 
     system->log_level = loglevel;
-
+    _papplRWUnlock(system);
     _papplSystemConfigChanged(system);
 
     pthread_mutex_unlock(&system->log_mutex);
