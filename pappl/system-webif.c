@@ -891,8 +891,8 @@ _papplSystemWebLogs(
           _papplRWLockWrite(system);
           papplSystemSetLogLevel(system, loglevel);
           _papplSystemRegisterDNSSDNoLock(system);
+          _papplSystemConfigChanged(system);
           _papplRWUnlock(system);
-          // _papplSystemConfigChanged(system);
 
           status = _PAPPL_LOC("Changes Saved.");
 	}
