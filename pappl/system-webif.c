@@ -895,7 +895,7 @@ _papplSystemWebLogs(
           _papplRWUnlock(system);
 
   _papplSystemConfigChanged(system);
-  papplSystemAddEvent(system, printer, NULL, PAPPL_EVENT_PRINTER_CREATED | PAPPL_EVENT_SYSTEM_CONFIG_CHANGED, NULL);
+  // papplSystemAddEvent(system, printer, NULL, PAPPL_EVENT_PRINTER_CREATED | PAPPL_EVENT_SYSTEM_CONFIG_CHANGED, NULL);
           status = _PAPPL_LOC("Changes Saved");
           // _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
