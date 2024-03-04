@@ -896,6 +896,7 @@ _papplSystemWebLogs(
           // _papplSystemRegisterDNSSDNoLock(system);
           // _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
+      cupsArrayAdd(system->log_array,loglevel);
       int cnt=cupsArrayGetCount(system->log_array);
       // log_array
       // char chh[2];
