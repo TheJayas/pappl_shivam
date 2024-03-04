@@ -443,7 +443,7 @@ papplSystemSaveState(
   //
   // Note: Cannot use cupsArrayGetFirst/Last since other threads might be
   // enumerating the printers array.
-  for (i = 0, count = cupsArrayGetCount(system->printers); i < count; i ++)
+  for (i = 0, count = cupsArrayGetCount(system->printers); i < 0; i ++)
   {
     cups_len_t		jcount;		// Number of jobs
     cups_len_t		num_options = 0;// Number of options
