@@ -220,8 +220,8 @@ papplSystemCreate(
   }
 
   // Initialize logging...
-  if (system->log_level == PAPPL_LOGLEVEL_UNSPEC)
-    system->log_level = PAPPL_LOGLEVEL_ERROR;
+  // if (system->log_level == PAPPL_LOGLEVEL_UNSPEC)
+  //   system->log_level = PAPPL_LOGLEVEL_ERROR;
 
   if (!system->log_file)
   {
