@@ -427,8 +427,8 @@ papplSystemSaveState(
     cupsFilePutConf(fp, "Location", system->location);
   if (system->geo_location)
     cupsFilePutConf(fp, "Geolocation", system->geo_location);
-  if (system->log_level)
-    cupsFilePutConf(fp, "LogLevel", system->log_level);
+  // if (system->log_level)
+  //   cupsFilePutConf(fp, "LogLevel", system->log_level);
   if (system->organization)
     cupsFilePutConf(fp, "Organization", system->organization);
   if (system->org_unit)
