@@ -85,6 +85,8 @@ papplSystemLoadState(
       papplSystemSetLocation(system, value);
     else if (!strcasecmp(line, "GeoLocation"))
       papplSystemSetGeoLocation(system, value);
+    else if (!strcasecmp(line, "LOGLEVEL"))
+      papplSystemSetLogLevel(system, value);
     else if (!strcasecmp(line, "Organization"))
       papplSystemSetOrganization(system, value);
     else if (!strcasecmp(line, "OrganizationalUnit"))
@@ -168,6 +170,8 @@ papplSystemLoadState(
 	  papplPrinterSetLocation(printer, value);
 	else if (!strcasecmp(line, "GeoLocation"))
 	  papplPrinterSetGeoLocation(printer, value);
+  else if (!strcasecmp(line, "LOGLEVEL"))
+    papplSystemSetLogLevel(system, value);    
 	else if (!strcasecmp(line, "Organization"))
 	  papplPrinterSetOrganization(printer, value);
 	else if (!strcasecmp(line, "OrganizationalUnit"))
@@ -423,6 +427,8 @@ papplSystemSaveState(
     cupsFilePutConf(fp, "Location", system->location);
   if (system->geo_location)
     cupsFilePutConf(fp, "Geolocation", system->geo_location);
+  if (system->log_level)
+    cupsFilePutConf(fp, "LOGLEVEL", system->log_level);
   if (system->organization)
     cupsFilePutConf(fp, "Organization", system->organization);
   if (system->org_unit)
@@ -443,7 +449,7 @@ papplSystemSaveState(
   //
   // Note: Cannot use cupsArrayGetFirst/Last since other threads might be
   // enumerating the printers array.
-  for (i = 0, count = cupsArrayGetCount(system->printers); i < 0; i ++)
+  for (i = 0, count = cupsArrayGetCount(system->printers); i < count; i ++)
   {
     cups_len_t		jcount;		// Number of jobs
     cups_len_t		num_options = 0;// Number of options
@@ -477,6 +483,8 @@ papplSystemSaveState(
       cupsFilePutConf(fp, "Location", printer->location);
     if (printer->geo_location)
       cupsFilePutConf(fp, "Geolocation", printer->geo_location);
+    if (system->log_level)
+      cupsFilePutConf(fp, "LOGLEVEL", system->log_level);      
     if (printer->organization)
       cupsFilePutConf(fp, "Organization", printer->organization);
     if (printer->org_unit)
