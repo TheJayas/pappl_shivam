@@ -897,7 +897,7 @@ _papplSystemWebLogs(
           // _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
       int cnt=cupsArrayGetCount(system->printers);
-      char chh[2]
+      char chh[2];
       chh[0]=((cnt%10)+'0');
           status = _PAPPL_LOC(chh);
 	}
