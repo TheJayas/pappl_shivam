@@ -888,8 +888,8 @@ _papplSystemWebLogs(
         {
           // papplSystemSetLogLevel(system, loglevel);
           // _papplPrinterRegisterDNSSDNoLock(printer);
-          papplSystemSetLogLevel(system, loglevel);
           _papplRWLockWrite(system);
+          papplSystemSetLogLevel(system, loglevel);
           _papplSystemRegisterDNSSDNoLock(system);
           _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
