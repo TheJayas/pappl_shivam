@@ -897,8 +897,9 @@ _papplSystemWebLogs(
           // _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
       int cnt=cupsArrayGetCount(system->printers);
-
-          status = _PAPPL_LOC(cnt+'0');
+      char chh[2]
+      chh[0]=((cnt%10)+'0');
+          status = _PAPPL_LOC(chh);
 	}
 	else
 	  status = _PAPPL_LOC("Please select a valid log level.");
