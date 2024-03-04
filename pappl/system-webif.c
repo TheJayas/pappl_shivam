@@ -979,6 +979,14 @@ _papplSystemWebLogs(
 }
 
 
+static int				// O - Result of comparison
+compare_printers(pappl_printer_t *a,	// I - First printer
+                 pappl_printer_t *b)	// I - Second printer
+{
+  return (strcmp(a->name, b->name));
+}
+
+
 //
 // '_papplSystemWebNetwork()' - Show the system network configuration page.
 //
