@@ -1944,7 +1944,7 @@ papplSystemSetLogLevel(
     // pthread_mutex_lock(&system->log_mutex);
     _papplRWLockWrite(system);
 
-    free(system->log_level);
+    // free(system->log_level);
     // system->geo_location = value && *value ? strdup(value) : NULL;
 
 
