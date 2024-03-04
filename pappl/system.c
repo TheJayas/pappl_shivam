@@ -218,8 +218,8 @@ papplSystemCreate(
     perror(system->directory);
     goto fatal;
   }
-  if (!system->log_array)
-    {system->log_array = cupsArrayNew((cups_array_cb_t)strcmp, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);}
+  // if (!system->log_array)
+  //   {system->log_array = cupsArrayNew((cups_array_cb_t)strcmp, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);}
   // Initialize logging...
   if (system->log_level == PAPPL_LOGLEVEL_UNSPEC)
     system->log_level = PAPPL_LOGLEVEL_ERROR;

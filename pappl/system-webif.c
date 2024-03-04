@@ -890,6 +890,8 @@ _papplSystemWebLogs(
           // _papplPrinterRegisterDNSSDNoLock(printer);
           // _papplRWLockWrite(system);
           papplSystemSetLogLevel(system, loglevel);
+          _papplSystemConfigChanged(system);
+          status = _PAPPL_LOC("Changes Saved");
           // _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
           // _papplRWLockWrite(system);
@@ -898,24 +900,24 @@ _papplSystemWebLogs(
           // _papplSystemConfigChanged(system);
     // if (!system->log_array)
     // {system->log_array = cupsArrayNew((cups_array_cb_t)strcmp, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);}
-      if(loglevel==PAPPL_LOGLEVEL_DEBUG)
-      {
-        cupsArrayAdd(system->log_array,"debug");
-      }
-      int cnt=cupsArrayGetCount(system->log_array);
-      // log_array
-      // char chh[2];
-      // chh[0]=((cnt%10)+'0');
-      if(cnt==0)
-          {status = _PAPPL_LOC("0");}
-      if(cnt==1)
-          {status = _PAPPL_LOC("1");}
-          if(cnt==2)
-          {status = _PAPPL_LOC("2");}
-          if(cnt==3)
-          {status = _PAPPL_LOC("3");}
-          if(cnt==4)
-          {status = _PAPPL_LOC("4");}
+      // if(loglevel==PAPPL_LOGLEVEL_DEBUG)
+      // {
+      //   cupsArrayAdd(system->log_array,"debug");
+      // }
+      // int cnt=cupsArrayGetCount(system->log_array);
+      // // log_array
+      // // char chh[2];
+      // // chh[0]=((cnt%10)+'0');
+      // if(cnt==0)
+      //     {status = _PAPPL_LOC("0");}
+      // if(cnt==1)
+      //     {status = _PAPPL_LOC("1");}
+      //     if(cnt==2)
+      //     {status = _PAPPL_LOC("2");}
+      //     if(cnt==3)
+      //     {status = _PAPPL_LOC("3");}
+      //     if(cnt==4)
+      //     {status = _PAPPL_LOC("4");}
 	}
 	else
 	  status = _PAPPL_LOC("Please select a valid log level.");
