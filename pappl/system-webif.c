@@ -897,7 +897,7 @@ _papplSystemWebLogs(
           // _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
     if (!system->log_array)
-    system->log_array = cupsArrayNew((cups_array_cb_t)compare_printers, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);
+    {system->log_array = cupsArrayNew((cups_array_cb_t)compare_printers, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);}
       cupsArrayAdd(system->log_array,loglevel);
       int cnt=cupsArrayGetCount(system->log_array);
       // log_array
