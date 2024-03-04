@@ -1952,7 +1952,7 @@ papplSystemSetLogLevel(
 
     _papplSystemConfigChanged(system);
 
-    _papplSystemRegisterDNSSDNoLock(system);
+    // _papplSystemRegisterDNSSDNoLock(system);
     _papplRWUnlock(system);
     // _papplSystemConfigChanged(system);
 
