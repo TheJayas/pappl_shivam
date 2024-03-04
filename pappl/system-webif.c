@@ -897,8 +897,8 @@ _papplSystemWebLogs(
           // _papplRWUnlock(system);
           // _papplSystemConfigChanged(system);
     if (!system->log_array)
-    {system->log_array = cupsArrayNew((cups_array_cb_t)compare_printers, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);}
-      cupsArrayAdd(system->log_array,loglevel);
+    {system->log_array = cupsArrayNew(NULL, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);}
+      // cupsArrayAdd(system->log_array,loglevel);
       int cnt=cupsArrayGetCount(system->log_array);
       // log_array
       // char chh[2];
@@ -979,12 +979,12 @@ _papplSystemWebLogs(
 }
 
 
-static int				// O - Result of comparison
-compare_printers(pappl_printer_t *a,	// I - First printer
-                 pappl_printer_t *b)	// I - Second printer
-{
-  return (strcmp(a->name, b->name));
-}
+// static int				// O - Result of comparison
+// compare_loglevel(pappl_loglevel_t *a,	// I - First printer
+//                  pappl_loglevel_t *b)	// I - Second printer
+// {
+//   return (strcmp(a->name, b->name));
+// }
 
 
 //
