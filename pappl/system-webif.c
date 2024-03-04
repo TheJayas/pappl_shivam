@@ -886,8 +886,13 @@ _papplSystemWebLogs(
 
         if (loglevel <= PAPPL_LOGLEVEL_FATAL)
         {
+          // papplSystemSetLogLevel(system, loglevel);
+          // _papplPrinterRegisterDNSSDNoLock(printer);
           papplSystemSetLogLevel(system, loglevel);
-            _papplSystemConfigChanged(system);
+          _papplRWLockWrite(system);
+          _papplSystemRegisterDNSSDNoLock(system);
+          _papplRWUnlock(system);
+          // _papplSystemConfigChanged(system);
 
           status = _PAPPL_LOC("Changes Saved.");
 	}
