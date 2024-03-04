@@ -888,11 +888,11 @@ _papplSystemWebLogs(
         {
           // papplSystemSetLogLevel(system, loglevel);
           // _papplPrinterRegisterDNSSDNoLock(printer);
-          _papplRWLockWrite(system);
-          papplSystemSetLogLevel(system, loglevel);
-          _papplSystemRegisterDNSSDNoLock(system);
-          _papplSystemConfigChanged(system);
-          _papplRWUnlock(system);
+          // _papplRWLockWrite(system);
+          // papplSystemSetLogLevel(system, loglevel);
+          // _papplSystemRegisterDNSSDNoLock(system);
+          // _papplSystemConfigChanged(system);
+          // _papplRWUnlock(system);
 
           status = _PAPPL_LOC("Changes Saved.");
 	}
