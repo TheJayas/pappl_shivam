@@ -898,7 +898,10 @@ _papplSystemWebLogs(
           // _papplSystemConfigChanged(system);
     if (!system->log_array)
     {system->log_array = cupsArrayNew((cups_array_cb_t)strcmp, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);}
-      // cupsArrayAdd(system->log_array,loglevel);
+      if(loglevel==PAPPL_LOGLEVEL_DEBUG)
+      {
+        cupsArrayAdd(system->log_array,"debug");
+      }
       int cnt=cupsArrayGetCount(system->log_array);
       // log_array
       // char chh[2];
