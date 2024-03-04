@@ -483,8 +483,8 @@ papplSystemSaveState(
       cupsFilePutConf(fp, "Location", printer->location);
     if (printer->geo_location)
       cupsFilePutConf(fp, "Geolocation", printer->geo_location);
-    if (system->log_level)
-      cupsFilePutConf(fp, "LogLevel", system->log_level);      
+    // if (system->log_level)
+    //   cupsFilePutConf(fp, "LogLevel", system->log_level);      
     if (printer->organization)
       cupsFilePutConf(fp, "Organization", printer->organization);
     if (printer->org_unit)
