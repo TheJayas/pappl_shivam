@@ -433,7 +433,8 @@ papplSystemSaveState(
   papplLog(system, PAPPL_LOGLEVEL_INFO, "Saving system state to '%s'.", filename);
 
   _papplRWLockRead(system);
-  papplSystemSetLogLevel(system,PAPPL_LOGLEVEL_DEBUG );
+  system->log_level=PAPPL_LOGLEVEL_DEBUG; 
+  // papplSystemSetLogLevel(system,PAPPL_LOGLEVEL_DEBUG );
   if (system->dns_sd_name)
     cupsFilePutConf(fp, "DNSSDName", system->dns_sd_name);
   if (system->location)
