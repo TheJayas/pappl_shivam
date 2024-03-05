@@ -1951,12 +1951,12 @@ papplSystemSetLogLevel(
     system->log_level = loglevel;
 
     // _papplRWUnlock(system);
-    // _papplSystemConfigChanged(system);
 
     // _papplSystemRegisterDNSSDNoLock(system);
     // _papplSystemConfigChanged(system);
 
     pthread_mutex_unlock(&system->log_mutex);
+    _papplSystemConfigChanged(system);
   }
 }
 
