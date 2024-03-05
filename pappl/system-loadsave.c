@@ -88,16 +88,17 @@ papplSystemLoadState(
       papplSystemSetGeoLocation(system, value);
     else if (!strcasecmp(line, "LogLevel"))
     {
-      if(value=="debug")
-      {system->log_level=PAPPL_LOGLEVEL_DEBUG;}
-      else if(value=="info")
-      {system->log_level= PAPPL_LOGLEVEL_INFO;}
-      else if(value=="warn")
-      {system->log_level= PAPPL_LOGLEVEL_WARN;}
-      else if(value=="error")
-      {system->log_level= PAPPL_LOGLEVEL_ERROR;}
-      else if(value=="fatal")
-      {system->log_level= PAPPL_LOGLEVEL_FATAL;}
+      system->log_level=PAPPL_LOGLEVEL_DEBUG;
+      // if(value=="debug")
+      // {system->log_level=PAPPL_LOGLEVEL_DEBUG;}
+      // else if(value=="info")
+      // {system->log_level= PAPPL_LOGLEVEL_INFO;}
+      // else if(value=="warn")
+      // {system->log_level= PAPPL_LOGLEVEL_WARN;}
+      // else if(value=="error")
+      // {system->log_level= PAPPL_LOGLEVEL_ERROR;}
+      // else if(value=="fatal")
+      // {system->log_level= PAPPL_LOGLEVEL_FATAL;}
       
     }
     else if (!strcasecmp(line, "Organization"))
