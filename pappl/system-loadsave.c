@@ -79,7 +79,7 @@ papplSystemLoadState(
   linenum = 0;
   while (read_line(fp, line, sizeof(line), &value, &linenum))
   {
-    if(linenum==2){papplSystemSetLogLevel(system,PAPPL_LOGLEVEL_DEBUG );}
+    // if(linenum==2){papplSystemSetLogLevel(system,PAPPL_LOGLEVEL_DEBUG );}
     if (!strcasecmp(line, "DNSSDName"))
       papplSystemSetDNSSDName(system, value);
     else if (!strcasecmp(line, "Location"))
