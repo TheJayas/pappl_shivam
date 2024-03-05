@@ -79,13 +79,8 @@ papplSystemLoadState(
   linenum = 0;
   while (read_line(fp, line, sizeof(line), &value, &linenum))
   {
-    // if(linenum==2){papplSystemSetLogLevel(system,PAPPL_LOGLEVEL_DEBUG );}
     if (!strcasecmp(line, "DNSSDName"))
       papplSystemSetDNSSDName(system, value);
-    else if (!strcasecmp(line, "Location"))
-      papplSystemSetLocation(system, value);
-    else if (!strcasecmp(line, "GeoLocation"))
-      papplSystemSetGeoLocation(system, value);
     else if (!strcasecmp(line, "LogLevel"))
     {
       // system->log_level=PAPPL_LOGLEVEL_DEBUG;
@@ -100,6 +95,10 @@ papplSystemLoadState(
       else if(value[0]=='f')
       {system->log_level= PAPPL_LOGLEVEL_FATAL;} 
     }
+    else if (!strcasecmp(line, "Location"))
+      papplSystemSetLocation(system, value);
+    else if (!strcasecmp(line, "GeoLocation"))
+      papplSystemSetGeoLocation(system, value);
     else if (!strcasecmp(line, "Organization"))
       papplSystemSetOrganization(system, value);
     else if (!strcasecmp(line, "OrganizationalUnit"))
@@ -183,8 +182,6 @@ papplSystemLoadState(
 	  papplPrinterSetLocation(printer, value);
 	else if (!strcasecmp(line, "GeoLocation"))
 	  papplPrinterSetGeoLocation(printer, value);
-  // else if (!strcasecmp(line, "LOGLEVEL"))
-  //   papplSystemSetLogLevel(system, value);    
 	else if (!strcasecmp(line, "Organization"))
 	  papplPrinterSetOrganization(printer, value);
 	else if (!strcasecmp(line, "OrganizationalUnit"))
@@ -433,27 +430,25 @@ papplSystemSaveState(
   papplLog(system, PAPPL_LOGLEVEL_INFO, "Saving system state to '%s'.", filename);
 
   _papplRWLockRead(system);
-  // system->log_level=PAPPL_LOGLEVEL_DEBUG; 
-  // papplSystemSetLogLevel(system,PAPPL_LOGLEVEL_DEBUG );
+  if (system->log_level)
+  {
+    if(system->log_level==PAPPL_LOGLEVEL_DEBUG)
+    {cupsFilePutConf(fp, "LogLevel", "d");}
+    else if(system->log_level==PAPPL_LOGLEVEL_INFO)
+    {cupsFilePutConf(fp, "LogLevel", "i");}
+    else if(system->log_level==PAPPL_LOGLEVEL_WARN)
+    {cupsFilePutConf(fp, "LogLevel", "w");}
+    else if(system->log_level==PAPPL_LOGLEVEL_ERROR)
+    {cupsFilePutConf(fp, "LogLevel", "er");}
+    else if(system->log_level==PAPPL_LOGLEVEL_FATAL)
+    {cupsFilePutConf(fp, "LogLevel", "f");}
+  }
   if (system->dns_sd_name)
     cupsFilePutConf(fp, "DNSSDName", system->dns_sd_name);
   if (system->location)
     cupsFilePutConf(fp, "Location", system->location);
   if (system->geo_location)
     cupsFilePutConf(fp, "Geolocation", system->geo_location);
-  // if (system->log_level!=PAPPL_LOGLEVEL_UNSPEC)
-  // {
-    if(system->log_level==PAPPL_LOGLEVEL_DEBUG)
-    {cupsFilePutConf(fp, "LogLevel", "debug");}
-    else if(system->log_level==PAPPL_LOGLEVEL_INFO)
-    {cupsFilePutConf(fp, "LogLevel", "info");}
-    else if(system->log_level==PAPPL_LOGLEVEL_WARN)
-    {cupsFilePutConf(fp, "LogLevel", "warn");}
-    else if(system->log_level==PAPPL_LOGLEVEL_ERROR)
-    {cupsFilePutConf(fp, "LogLevel", "error");}
-    else if(system->log_level==PAPPL_LOGLEVEL_FATAL)
-    {cupsFilePutConf(fp, "LogLevel", "fatal");}
-  // }
   if (system->organization)
     cupsFilePutConf(fp, "Organization", system->organization);
   if (system->org_unit)
@@ -508,8 +503,6 @@ papplSystemSaveState(
       cupsFilePutConf(fp, "Location", printer->location);
     if (printer->geo_location)
       cupsFilePutConf(fp, "Geolocation", printer->geo_location);
-    // if (system->log_level)
-    //   cupsFilePutConf(fp, "LogLevel", system->log_level);      
     if (printer->organization)
       cupsFilePutConf(fp, "Organization", printer->organization);
     if (printer->org_unit)

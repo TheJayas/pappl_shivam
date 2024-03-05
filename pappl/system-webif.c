@@ -886,43 +886,8 @@ _papplSystemWebLogs(
 
         if (loglevel <= PAPPL_LOGLEVEL_FATAL)
         {
-          // papplSystemSetLogLevel(system, loglevel);
-          // _papplPrinterRegisterDNSSDNoLock(printer);
-          // _papplRWLockWrite(system);
-          // _papplRWLockWrite(system);
           papplSystemSetLogLevel(system, loglevel);
-          // _papplSystemConfigChanged(system);
-          // _papplRWUnlock(system);
-
-  // _papplSystemConfigChanged(system);
-  // papplSystemAddEvent(system, printer, NULL, PAPPL_EVENT_PRINTER_CREATED | PAPPL_EVENT_SYSTEM_CONFIG_CHANGED, NULL);
-          status = _PAPPL_LOC("Changes Saved");
-          // _papplRWUnlock(system);
-          // _papplSystemConfigChanged(system);
-          // _papplRWLockWrite(system);
-          // _papplSystemRegisterDNSSDNoLock(system);
-          // _papplRWUnlock(system);
-          // _papplSystemConfigChanged(system);
-    // if (!system->log_array)
-    // {system->log_array = cupsArrayNew((cups_array_cb_t)strcmp, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);}
-      // if(loglevel==PAPPL_LOGLEVEL_DEBUG)
-      // {
-      //   cupsArrayAdd(system->log_array,"debug");
-      // }
-      // int cnt=cupsArrayGetCount(system->log_array);
-      // // log_array
-      // // char chh[2];
-      // // chh[0]=((cnt%10)+'0');
-      // if(cnt==0)
-      //     {status = _PAPPL_LOC("0");}
-      // if(cnt==1)
-      //     {status = _PAPPL_LOC("1");}
-      //     if(cnt==2)
-      //     {status = _PAPPL_LOC("2");}
-      //     if(cnt==3)
-      //     {status = _PAPPL_LOC("3");}
-      //     if(cnt==4)
-      //     {status = _PAPPL_LOC("4");}
+          status = _PAPPL_LOC("Changes Saved.");
 	}
 	else
 	  status = _PAPPL_LOC("Please select a valid log level.");
@@ -987,14 +952,6 @@ _papplSystemWebLogs(
 
   system_footer(client);
 }
-
-
-// static int				// O - Result of comparison
-// compare_loglevel(pappl_loglevel_t *a,	// I - First printer
-//                  pappl_loglevel_t *b)	// I - Second printer
-// {
-//   return 1;
-// }
 
 
 //

@@ -41,7 +41,7 @@ _papplSystemAddPrinter(
 
   if (!system->printers)
     system->printers = cupsArrayNew((cups_array_cb_t)compare_printers, /*cb_data*/NULL, /*hash_cb*/NULL, /*hash_size*/0, /*copy_cb*/NULL, /*free_cb*/NULL);
-  // papplSystemSetLogLevel(system,PAPPL_LOGLEVEL_WARN);
+
   cupsArrayAdd(system->printers, printer);
 
   if (!system->default_printer_id)
