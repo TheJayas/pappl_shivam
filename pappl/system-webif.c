@@ -710,8 +710,12 @@ _papplSystemWebHome(
   papplClientHTMLPrintf(client,
 		        "        </div>\n"
                         "        <div class=\"col-6\">\n"
-                        "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Printerss")));
-
+                        "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Printers")));
+  
+  papplClientHTMLPrintf(client,
+		        "        </div>\n"
+                        "        <div class=\"col-6\">\n"
+                        "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Job Queue")));
   _papplClientHTMLPutLinks(client, system->links, PAPPL_LOPTIONS_PRINTER);
 
   papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
