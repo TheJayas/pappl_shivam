@@ -979,7 +979,7 @@ _papplPrinterWebIteratorCallback(
   if (printer->driver_data.testpage_cb)
   {
     papplClientHTMLStartForm(client, uri, false);
-    papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Test Page")));
+    papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
   }
 
   if (printer->hold_new_jobs && papplPrinterGetMaxActiveJobs(printer) != 1)
