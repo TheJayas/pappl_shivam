@@ -722,6 +722,8 @@ _papplSystemWebHome(
               "        </div>\n"
                           "        <div class=\"col-6\">\n"
                           "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Job Queue")));
+    papplClientHTMLStartForm(client, uri, false);
+    papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
   }
   papplClientHTMLPuts(client,
                       "        </div>\n"
