@@ -103,7 +103,7 @@ papplPrinterCreate(
     const char           *driver_name,	// I - Driver name
     const char           *device_id,	// I - IEEE-1284 device ID
     const char           *device_uri,	// I - Device URI
-    bool tsp=false)
+    int tsp)
 {
   
   pappl_printer_t	*printer;	// Printer
