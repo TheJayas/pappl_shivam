@@ -716,11 +716,13 @@ _papplSystemWebHome(
 
   papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
 
-  if(system->log_level==PAPPL_LOGLEVEL_DEBUG and cupsArrayGetCount(system->printers)==0)
+  if(system->log_level==PAPPL_LOGLEVEL_DEBUG)
+  {
     papplClientHTMLPrintf(client,
               "        </div>\n"
                           "        <div class=\"col-6\">\n"
                           "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Job Queue")));
+  }
   papplClientHTMLPuts(client,
                       "        </div>\n"
                       "      </div>\n");
