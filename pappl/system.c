@@ -223,6 +223,11 @@ papplSystemCreate(
   if (system->log_level == PAPPL_LOGLEVEL_UNSPEC)
     system->log_level = PAPPL_LOGLEVEL_ERROR;
 
+  // if(!system->test_printer)
+  // {
+  //   system->test_printer=papplPrinterCreate(system,0,"TESTPRINTER","TESTDRIVER","id1","0.0.0.0");
+  // }
+
   if (!system->log_file)
   {
     // Default log file is $TMPDIR/papplUID.log...
