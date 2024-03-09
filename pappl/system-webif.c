@@ -716,7 +716,7 @@ _papplSystemWebHome(
 
   papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
 
-  if(system->log_level==PAPPL_LOGLEVEL_DEBUG)
+  if(system->log_level==PAPPL_LOGLEVEL_DEBUG && cupsArrayGetCount(system->printers)==0)
   {
     papplClientHTMLPrintf(client,
               "        </div>\n"
