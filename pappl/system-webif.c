@@ -710,7 +710,7 @@ _papplSystemWebHome(
   papplClientHTMLPrintf(client,
 		        "        </div>\n"
                         "        <div class=\"col-6\">\n"
-                        "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Printers")));
+                        "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Printerss")));
 
   _papplClientHTMLPutLinks(client, system->links, PAPPL_LOPTIONS_PRINTER);
 
