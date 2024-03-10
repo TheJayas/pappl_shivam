@@ -86,7 +86,7 @@ struct _pappl_system_s			// System data
   char			*admin_group;		// PAM administrative group, if any
   gid_t			admin_gid;		// PAM administrative group ID
   pappl_printer_t *test_printer;
-  // bool upl;
+  int upl;
   char			*default_print_group;	// Default PAM printing group, if any
   char			session_key[65];	// Session key
   pthread_mutex_t	session_mutex;		// Mutex for the session key
