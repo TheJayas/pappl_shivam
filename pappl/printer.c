@@ -106,7 +106,7 @@ papplPrinterCreate(
     ...)
 {
   va_list	ap;	
-  int tsp=0; 
+  int32_t tsp=0; 
   tsp = va_arg(ap, int32_t);
   // ap
   // if(!tsp){tsp=1;}
