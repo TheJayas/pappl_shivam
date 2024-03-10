@@ -572,8 +572,8 @@ papplPrinterCreate(
   ippDelete(driver_attrs);
 
   // Add the printer to the system...
-  // if(!tsp)
-  _papplSystemAddPrinter(system, printer, printer_id);
+  if(system->upl==0)
+  {_papplSystemAddPrinter(system, printer, printer_id);}
 
   // printer-id
   _papplRWLockWrite(printer);

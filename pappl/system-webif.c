@@ -468,6 +468,7 @@ _papplSystemWebAddPrinter(
       }
       else if (!status)
       {
+        system->upl=0;
         pappl_printer_t *printer = papplPrinterCreate(system, 0, printer_name, driver_name, device_id, device_uri);
 					// New printer
 
@@ -726,6 +727,10 @@ _papplSystemWebHome(
     snprintf(uri, sizeof(uri), "%s/", "TEST PRINTER");
     papplClientHTMLStartForm(client, uri, false);
     papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
+    system->upl=1;
+  }
+  else{
+    system->upl=0;
   }
   papplClientHTMLPuts(client,
                       "        </div>\n"
