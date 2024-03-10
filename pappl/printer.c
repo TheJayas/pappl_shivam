@@ -105,9 +105,9 @@ papplPrinterCreate(
     const char           *device_uri,	// I - Device URI
     ...)
 {
-  va_list	ap;	
+  va_list	param;	
   int32_t tsp=0; 
-  tsp = va_arg(ap, int32_t);
+  // tsp = va_arg(ap, int32_t);
   // ap
   // if(!tsp){tsp=1;}
   
