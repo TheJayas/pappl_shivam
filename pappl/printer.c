@@ -103,8 +103,13 @@ papplPrinterCreate(
     const char           *driver_name,	// I - Driver name
     const char           *device_id,	// I - IEEE-1284 device ID
     const char           *device_uri,	// I - Device URI
-    int tsp)
+    ...)
 {
+  va_list	ap;	
+  int tsp=0; 
+  tsp = va_arg(ap, int32_t);
+  // ap
+  // if(!tsp){tsp=1;}
   
   pappl_printer_t	*printer;	// Printer
   char			resource[1024],	// Resource path
