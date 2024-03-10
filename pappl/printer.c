@@ -102,7 +102,8 @@ papplPrinterCreate(
     const char           *printer_name,	// I - Human-readable printer name
     const char           *driver_name,	// I - Driver name
     const char           *device_id,	// I - IEEE-1284 device ID
-    const char           *device_uri)	// I - Device URI
+    const char           *device_uri,	// I - Device URI
+    ...)				// I - Additional args as needed
     
 {
   // va_list	param;	
