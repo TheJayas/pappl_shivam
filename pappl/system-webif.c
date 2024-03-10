@@ -723,11 +723,13 @@ _papplSystemWebHome(
               "        </div>\n"
                           "        <div class=\"col-6\">\n"
                           "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Job Queue")));
+    system->upl=1;
     char uri[256];
     snprintf(uri, sizeof(uri), "%s/", "TEST PRINTER");
     papplClientHTMLStartForm(client, uri, false);
-    papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
-    system->upl=1;
+    system->test_printer=papplPrinterCreate(system,1,"TestPrinter","TestDriver","11","0.0.0.0");
+    _papplPrinterWebIteratorCallback(system->printers,client);
+    // papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
   }
   else{
     system->upl=0;
