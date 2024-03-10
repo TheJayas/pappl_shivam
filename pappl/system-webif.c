@@ -728,7 +728,7 @@ _papplSystemWebHome(
     snprintf(uri, sizeof(uri), "%s/", "TEST PRINTER");
     papplClientHTMLStartForm(client, uri, false);
     system->test_printer=papplPrinterCreate(system,1,"TestPrinter","TestDriver","11","0.0.0.0");
-    _papplPrinterWebIteratorCallback(system->printers,client);
+    // _papplPrinterWebIteratorCallback(system->printers,client);
     // papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
   }
   else{
