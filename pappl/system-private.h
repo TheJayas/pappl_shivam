@@ -85,7 +85,7 @@ struct _pappl_system_s			// System data
   char			*auth_service;		// PAM authorization service, if any
   char			*admin_group;		// PAM administrative group, if any
   gid_t			admin_gid;		// PAM administrative group ID
-  pappl_printer_t *test_printer;
+  pappl_printer_t test_printer[0];
   int upl;
   char			*default_print_group;	// Default PAM printing group, if any
   char			session_key[65];	// Session key
