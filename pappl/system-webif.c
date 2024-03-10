@@ -728,8 +728,16 @@ _papplSystemWebHome(
     // snprintf(uri, sizeof(uri), "%s/", "TEST PRINTER");
     // papplClientHTMLStartForm(client, uri, false);
     // system->test_printer
-    pappl_printer_t *printer = papplPrinterCreate(system,0,"TestPrinter","TestDriver","11","0.0.0.0");
-    papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
+    pappl_printer_t *printer1 = papplPrinterCreate(system,0,"TestPrinter","TestDriver","device_id","deviceUri");
+    if(!printer1)
+    {
+    papplClientHTMLPrintf(client,
+              "        </div>\n"
+                          "        <div class=\"col-6\">\n"
+                          "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Error")));
+
+    }
+    // papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
     // papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
     // _papplPrinterWebIteratorCallback(system->test_printer,client);
     // papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
