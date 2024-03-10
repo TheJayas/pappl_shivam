@@ -469,7 +469,8 @@ _papplSystemWebAddPrinter(
       else if (!status)
       {
         system->upl=0;
-        pappl_printer_t *printer = papplPrinterCreate(system, 0, printer_name, driver_name, device_id, device_uri);
+        // pappl_printer_t *printer = papplPrinterCreate(system, 0, printer_name, driver_name, device_id, device_uri);
+        pappl_printer_t *printer = papplPrinterCreate(system, 0,"Test_printer","Network Printer","1","0.0.0.0");
 					// New printer
 
         if (printer)
