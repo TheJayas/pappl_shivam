@@ -728,7 +728,7 @@ _papplSystemWebHome(
     // snprintf(uri, sizeof(uri), "%s/", "TEST PRINTER");
     // papplClientHTMLStartForm(client, uri, false);
     // system->test_printer
-    pappl_printer_t *printer1 = papplPrinterCreate(system,0,"TestPrinter","TestDriver","device_id","deviceUri");
+    pappl_printer_t *printer1 = papplPrinterCreate(system,0,"Test_printer","Network Printer","1","0.0.0.0");
     if(!printer1)
     {
     papplClientHTMLPrintf(client,
