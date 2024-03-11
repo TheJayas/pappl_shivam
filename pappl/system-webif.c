@@ -492,7 +492,7 @@ _papplSystemWebAddPrinter(
 	      status = _PAPPL_LOC("A printer with that name already exists.");
               break;
           case EIO :
-              status = _PAPPL_LOC("Unable to use that driver.");
+              status = _PAPPL_LOC(driver_name);
               break;
 	  case EINVAL :
 	      status = _PAPPL_LOC("Printer names must start with a letter or underscore and cannot contain special characters.");
