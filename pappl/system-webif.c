@@ -469,8 +469,8 @@ _papplSystemWebAddPrinter(
       else if (!status)
       {
         system->upl=0;
-        // pappl_printer_t *printer = papplPrinterCreate(system, 0, printer_name, driver_name, device_id, device_uri);
-        pappl_printer_t *printer = papplPrinterCreate(system, 0,"Test_printer","hp--910--en","1","0.0.0.0");
+        pappl_printer_t *printer = papplPrinterCreate(system, 0, printer_name, driver_name, device_id, device_uri);
+        
 					// New printer
 
         if (printer)
@@ -724,23 +724,23 @@ _papplSystemWebHome(
               "        </div>\n"
                           "        <div class=\"col-6\">\n"
                           "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Job Queue")));
-    system->upl=0;
+    system->upl=1;
     // char uri[256];
     // snprintf(uri, sizeof(uri), "%s/", "TEST PRINTER");
     // papplClientHTMLStartForm(client, uri, false);
     // system->test_printer
-    pappl_printer_t *printer1 = papplPrinterCreate(system,0,"Test_printer","Network Printer","1","0.0.0.0");
-    if(!printer1)
-    {
-    papplClientHTMLPrintf(client,
-              "        </div>\n"
-                          "        <div class=\"col-6\">\n"
-                          "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Error")));
+    pappl_printer_t *printer = papplPrinterCreate(system, 0,"Test_printer","hp--910--en","1","0.0.0.0");
+    // if(!printer1)
+    // {
+    // papplClientHTMLPrintf(client,
+    //           "        </div>\n"
+    //                       "        <div class=\"col-6\">\n"
+    //                       "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Error")));
 
-    }
+    // }
     // papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
     // papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
-    // _papplPrinterWebIteratorCallback(system->test_printer,client);
+    _papplPrinterWebIteratorCallback(printer,client);
     // papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
   }
   else{
