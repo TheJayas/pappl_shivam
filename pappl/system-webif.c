@@ -729,7 +729,8 @@ _papplSystemWebHome(
     // snprintf(uri, sizeof(uri), "%s/", "TEST PRINTER");
     // papplClientHTMLStartForm(client, uri, false);
     // system->test_printer
-    pappl_printer_t *printer = papplPrinterCreate(system, 0,"Test_printer","hp--910--en","1","0.0.0.0");
+    if(!system->test_printer)
+      system->test_printer = papplPrinterCreate(system, 0,"Test_printer","hp--910--en","1","0.0.0.0");
     // if(!printer1)
     // {
     // papplClientHTMLPrintf(client,
@@ -740,7 +741,7 @@ _papplSystemWebHome(
     // }
     // papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
     // papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
-    _papplPrinterWebIteratorCallback(printer,client);
+    _papplPrinterWebIteratorCallback(system->test_printer,client);
     // papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
   }
   else{
