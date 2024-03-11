@@ -100,7 +100,7 @@ papplSystemLoadState(
     {
       if(value[0] == 'd')
       {
-        system->log_level =PAPPL_LOGLEVEL_DEBUG;
+        system->log_level = PAPPL_LOGLEVEL_DEBUG;
       }
       else if(value[0] == 'i')
       {
