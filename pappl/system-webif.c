@@ -723,7 +723,7 @@ _papplSystemWebHome(
     papplClientHTMLPrintf(client,
               "        </div>\n"
                           "        <div class=\"col-6\">\n"
-                          "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Job Queue")));
+                          "          <h3 class=\"title\">%s</h3>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Job Queue")));
     system->upl=1;
     // char uri[256];
     // snprintf(uri, sizeof(uri), "%s/", "TEST PRINTER");
@@ -741,7 +741,8 @@ _papplSystemWebHome(
     // }
     // papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
     // papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
-    _papplPrinterWebIteratorCallback(system->test_printer,client);
+    if(system->test_printer)
+      _papplPrinterWebIteratorCallback(system->test_printer,client);
     // papplClientHTMLPrintf(client, "<input type=\"hidden\" name=\"action\" value=\"print-test-page\"><input type=\"submit\" value=\"%s\"></form>", papplClientGetLocString(client, _PAPPL_LOC("Print Testt Page")));
   }
   else{
