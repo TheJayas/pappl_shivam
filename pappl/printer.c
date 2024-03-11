@@ -103,14 +103,7 @@ papplPrinterCreate(
     const char           *driver_name,	// I - Driver name
     const char           *device_id,	// I - IEEE-1284 device ID
     const char           *device_uri)	// I - Device URI
-    
 {
-  // va_list	param;	
-  // int32_t tsp=0; 
-  // tsp = va_arg(ap, int32_t);
-  // ap
-  // if(!tsp){tsp=1;}
-  
   pappl_printer_t	*printer;	// Printer
   char			resource[1024],	// Resource path
 			*resptr,	// Pointer into resource path
@@ -574,6 +567,7 @@ papplPrinterCreate(
   // Add the printer to the system...
   if(system->check_add_printer)
     _papplSystemAddPrinter(system, printer, printer_id);
+
 
   // printer-id
   _papplRWLockWrite(printer);

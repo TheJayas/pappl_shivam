@@ -1374,15 +1374,8 @@ papplSystemIteratePrinters(
   // enumerating the printers array.
 
   _papplRWLockRead(system);
-  // if(system->upl)
-  // {
-  //   (cb)((pappl_printer_t *)system->test_printer, data);
-  // }
-  // else
-  // {
-    for (i = 0, count = cupsArrayGetCount(system->printers); i < count; i ++)
-      (cb)((pappl_printer_t *)cupsArrayGetElement(system->printers, i), data);
-  // }
+  for (i = 0, count = cupsArrayGetCount(system->printers); i < count; i ++)
+    (cb)((pappl_printer_t *)cupsArrayGetElement(system->printers, i), data);
   _papplRWUnlock(system);
 }
 

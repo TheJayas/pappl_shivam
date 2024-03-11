@@ -470,7 +470,6 @@ _papplSystemWebAddPrinter(
       {
         system->check_add_printer=1;
         pappl_printer_t *printer = papplPrinterCreate(system, 0, printer_name, driver_name, device_id, device_uri);
-        
 					// New printer
 
         if (printer)
@@ -713,11 +712,10 @@ _papplSystemWebHome(
 		        "        </div>\n"
                         "        <div class=\"col-6\">\n"
                         "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Printers")));
-  
+
   _papplClientHTMLPutLinks(client, system->links, PAPPL_LOPTIONS_PRINTER);
 
   papplSystemIteratePrinters(system, (pappl_printer_cb_t)_papplPrinterWebIteratorCallback, client);
-
 
   if(system->log_level == PAPPL_LOGLEVEL_DEBUG && cupsArrayGetCount(system->printers) == 0)
   {
