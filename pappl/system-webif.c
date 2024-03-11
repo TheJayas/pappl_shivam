@@ -723,7 +723,7 @@ _papplSystemWebHome(
     papplClientHTMLPrintf(client,
               "        </div>\n"
                           "        <div class=\"col-6\">\n"
-                          "          <h3 class=\"title\">%s</h3>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Job Queue")));
+                          "          <h1 class=\"title\">%s</h1>\n", papplClientGetLocString(client, _PAPPL_LOC("Test Job Queue")));
     system->upl=1;
     // char uri[256];
     // snprintf(uri, sizeof(uri), "%s/", "TEST PRINTER");
